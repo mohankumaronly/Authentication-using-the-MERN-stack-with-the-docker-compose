@@ -32,11 +32,11 @@ app.get("/health", (_, res) => {
 app.get("/test", (req, res) => {
   res.status(200).json({
     success: true,
-    message: "Data is fetched from the backend perfectly 🚀",
+    message: "Data is fetched from the backend perfectly",
   });
 });
 
-app.use('/api', authRouter);
+app.use('/api/auth', authRouter);
 
 
 const startServer = async () => {
