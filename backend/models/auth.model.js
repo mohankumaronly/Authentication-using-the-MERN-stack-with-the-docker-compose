@@ -8,6 +8,9 @@ const authSchema = mongoose.Schema({
     rememberMe: { type: Boolean, default: false },
     resetPasswordToken: { type: String },
     resetPasswordExpire: { type: Date },
+    isEmailVerified: {type: Boolean,default: false},
+    emailVerificationToken: {type: String},
+    emailVerificationExpire: {type: Date,},
 }, { timestamps: true });
 
 const User = mongoose.model('User', authSchema);
