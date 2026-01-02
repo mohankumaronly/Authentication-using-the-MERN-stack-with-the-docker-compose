@@ -2,6 +2,7 @@ const crypto = require('crypto');
 const bcrypt = require('bcrypt');
 const User = require("../models/auth.model");
 const sendEmail = require('../utils/sendEmail');
+const resetPasswordTemplate = require('../utils/Emails/resetPasswordTemplate');
 
 const forgotPassword = async (req, res) => {
     try {
@@ -33,17 +34,14 @@ const forgotPassword = async (req, res) => {
 
         const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
+
         await sendEmail({
             to: user.email,
             subject: "Reset your password",
-            html: `
-    <p>You requested a password reset.</p>
-    <p>Click the link below to reset your password:</p>
-    <a href="${resetUrl}">${resetUrl}</a>
-    <p>This link will expire in 15 minutes.</p>
-  `,
+            html: resetPasswordTemplate(resetUrl),
+            text: `Reset your password using this link: ${resetUrl}`,
         });
-        
+
         return res.status(200).json({
             success: true,
             message: "If the email exists, a reset link has been sent",
