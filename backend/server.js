@@ -22,14 +22,14 @@ app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
 
 
-app.get("/health", (_, res) => {
+app.get("/api/health", (_, res) => {
   res.status(200).json({
     status: "OK",
     message: "Rockranger API is running",
   });
 });
 
-app.get("/test", (req, res) => {
+app.get("/api/test", (req, res) => {
   res.status(200).json({
     success: true,
     message: "Data is fetched from the backend perfectly",

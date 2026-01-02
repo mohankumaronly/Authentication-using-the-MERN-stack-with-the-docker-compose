@@ -23,7 +23,9 @@
     "joi": "^18.0.2",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.1.0",
-    "nodemailer": "^7.0.12",
+    "nodemailer": "^7.0.12"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.11"
   }
 }
