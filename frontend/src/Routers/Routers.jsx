@@ -5,6 +5,8 @@ import LoginPage from '../pages/LoginPage'
 import ForgotPasswordPage from '../pages/ForgotPasswordPage'
 import ResetPasswordPage from '../pages/ResetPasswordPage'
 import HomePage from '../pages/HomePage'
+import VerifyEmailPage from '../pages/VerifyEmailPage'
+import CheckMainToChange from '../pages/CheckMainToChange'
 
 const Routers = () => {
     return (
@@ -12,9 +14,11 @@ const Routers = () => {
             <Route path='/' element={<RegisterPage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/forgot-password' element={<ForgotPasswordPage />} />
-            <Route path='/auth/reset-password' element={<ResetPasswordPage />} />
             <Route path='/home' element={<HomePage />} />
-        </Routes>               
+            <Route path='/check-email' element={<CheckMainToChange />} />
+            <Route path='/verify-email/:token' element={<VerifyEmailPage />} />
+            <Route path='/reset-password/:token' element={<ResetPasswordPage />} />
+        </Routes>
     )
 }
 
